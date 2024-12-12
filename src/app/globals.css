@@ -23,5 +23,9 @@ body {
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  };
+  .text-stroke {
+    -webkit-text-stroke: 2px #ffffff; 
+    text-transform: uppercase; 
   }
 }
