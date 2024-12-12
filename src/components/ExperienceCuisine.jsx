@@ -39,7 +39,6 @@ const ExperienceCuisine = () => {
         </motion.div>
       </div>
 
-      {/* المحتوى الثابت */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 mt-20">
         <div className="text-center">
           <motion.div
@@ -64,7 +63,6 @@ const ExperienceCuisine = () => {
           <p className="mt-2 text-yellow-500 font-bold">Herman Miller</p>
         </div>
 
-        {/* صور وتجربة صحية */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8 items-center">
           <div className="flex justify-end">
             <Image
@@ -97,7 +95,6 @@ const ExperienceCuisine = () => {
           </div>
         </div>
 
-        {/* الصور السفلية */}
         <div className="flex justify-center space-x-4 mt-12">
           <img
             src="/homepage/mark-withers-obit-120724-7a95f08c44014913939ba21876e3f256.webp"

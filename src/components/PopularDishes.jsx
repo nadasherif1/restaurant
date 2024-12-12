@@ -49,13 +49,13 @@ const PopularDishes = () => {
         spaceBetween={20}
         breakpoints={{
           320: {
-            slidesPerView: 1, // For mobile devices
+            slidesPerView: 1, 
           },
           640: {
-            slidesPerView: 2, // For tablets
+            slidesPerView: 2, 
           },
           1024: {
-            slidesPerView: 3, // For laptops
+            slidesPerView: 3, 
           },
         }}
         loop={true}
