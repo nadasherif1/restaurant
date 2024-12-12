@@ -88,16 +88,19 @@ const Navbar = () => {
         <HomeIcon fontSize="large" />
       </IconButton>
 
-      <Drawer anchor="right" open={openMenu} onClose={handleDrawerToggle}>
-        <div className="w-full max-w-xs p-4 overflow-hidden">
+      <Drawer anchor="right" open={openMenu} onClose={handleDrawerToggle} PaperProps={{ sx: { backgroundColor: "black" } }}>
+        <div className="w-full max-w-xl p-5 mx-auto overflow-hidden">
           <List>
             {links.map((link) => (
-              <ListItem button key={link.href} onClick={handleDrawerToggle}>
-                <Link href={link.href} className="flex items-center justify-start">
-                  {link.icon}
-                  <ListItemText primary={link.label} className="ml-2" />
-                </Link>
-              </ListItem>
+              <div key={link.href}>
+                <ListItem button onClick={handleDrawerToggle} className="text-white">
+                  <Link href={link.href} className="flex items-center justify-start w-full">
+                    <span className="flex items-center justify-center w-10 h-10">{link.icon}</span>
+                    <ListItemText primary={link.label} className="ml-4 text-white" />
+                  </Link>
+                </ListItem>
+                <hr className="border-gray-700" />
+              </div>
             ))}
           </List>
         </div>

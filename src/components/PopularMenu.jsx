@@ -11,21 +11,33 @@ const categories = [
 
 const dishesData = {
   nonveg: [
-    { id: 1, name: "Boiled Organic Egg", price: "$12", image: "/homepage/demo-restaurant-tab-05.jpg" },
-    { id: 2, name: "Chicken Breast Burger", price: "$10", image: "/homepage/demo-restaurant-tab-05.jpg" },
-    { id: 3, name: "Medium Spicy Chips", price: "$8", image: "/homepage/demo-restaurant-tab-05.jpg" },
+    { id: 1, name: "Boiled Organic Egg", price: "$152", image: "/homepage/demo-restaurant-tab-05.jpg" },
+    { id: 2, name: "Chicken Breast Burger", price: "$170", image: "/homepage/demo-restaurant-tab-01.jpg" },
+    { id: 3, name: "Medium Spicy Chips", price: "$88", image: "/homepage/demo-restaurant-tab-02.jpg" },
+    { id: 4, name: "Boiled Organic Egg", price: "$152", image: "/homepage/demo-restaurant-tab-03.jpg" },
+    { id: 5, name: "Chicken Breast Burger", price: "$140", image: "/homepage/demo-restaurant-tab-04.jpg" },
+    { id: 6, name: "Medium Spicy Chips", price: "$88", image: "/homepage/demo-restaurant-tab-06.jpg" },
   ],
   vegetarian: [
-    { id: 1, name: "Veggie Salad", price: "$9.00", image: "/homepage/demo-restaurant-tab-05.jpg" },
-    { id: 2, name: "Grilled Paneer", price: "$11.00", image: "/homepage/demo-restaurant-tab-05.jpg" },
+    { id: 1, name: "Boiled Organic Egg", price: "$152", image: "/homepage/demo-restaurant-tab-05.jpg" },
+    { id: 2, name: "Chicken Breast Burger", price: "$170", image: "/homepage/demo-restaurant-tab-01.jpg" },
+    { id: 3, name: "Medium Spicy Chips", price: "$88", image: "/homepage/demo-restaurant-tab-02.jpg" },
+    { id: 4, name: "Medium Spicy Chips", price: "$88", image: "/homepage/demo-restaurant-tab-06.jpg" },
   ],
   dessert: [
-    { id: 1, name: "Chocolate Cake", price: "$15.00", image: "/homepage/demo-restaurant-tab-05.jpg" },
-    { id: 2, name: "Ice Cream", price: "$7.00", image: "/homepage/demo-restaurant-tab-05.jpg" },
+    { id: 1, name: "Boiled Organic Egg", price: "$152", image: "/homepage/demo-restaurant-tab-05.jpg" },
+    { id: 2, name: "Chicken Breast Burger", price: "$170", image: "/homepage/demo-restaurant-tab-01.jpg" },
+    { id: 3, name: "Medium Spicy Chips", price: "$88", image: "/homepage/demo-restaurant-tab-02.jpg" },
+    { id: 4, name: "Boiled Organic Egg", price: "$152", image: "/homepage/demo-restaurant-tab-03.jpg" },
+ 
   ],
   drinks: [
-    { id: 1, name: "Orange Juice", price: "$5.00", image: "/homepage/demo-restaurant-tab-05.jpg" },
-    { id: 2, name: "Lemon Soda", price: "$4.00", image: "/homepage/demo-restaurant-tab-05.jpg" },
+    { id: 1, name: "Boiled Organic Egg", price: "$152", image: "/homepage/demo-restaurant-tab-05.jpg" },
+    { id: 2, name: "Chicken Breast Burger", price: "$170", image: "/homepage/demo-restaurant-tab-01.jpg" },
+    { id: 3, name: "Medium Spicy Chips", price: "$88", image: "/homepage/demo-restaurant-tab-02.jpg" },
+    { id: 4, name: "Boiled Organic Egg", price: "$152", image: "/homepage/demo-restaurant-tab-03.jpg" },
+    { id: 5, name: "Chicken Breast Burger", price: "$140", image: "/homepage/demo-restaurant-tab-04.jpg" },
+    { id: 6, name: "Medium Spicy Chips", price: "$88", image: "/homepage/demo-restaurant-tab-06.jpg" },
   ],
 };
 
@@ -40,12 +52,15 @@ const PopularMenu = () => {
     <div className="bg-white py-10 px-5">
       <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8 text-black">Popular Menu</h2>
 
-      {/* الأزرار */}
       <div className="flex flex-wrap justify-center gap-3 mb-8">
         {categories.map((category) => (
           <button
             key={category.id}
             onClick={() => handleCategoryChange(category.id)}
+            layout
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 1.1 }}
+            transition={{ duration: 0.3 }}
             className={`text-sm sm:text-lg font-medium px-4 py-2 rounded ${
               selectedCategory === category.id
                 ? "text-orange-600 underline"
@@ -57,7 +72,6 @@ const PopularMenu = () => {
         ))}
       </div>
 
-      {/* الأطباق */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 px-2 sm:px-6">
         {dishesData[selectedCategory].map((dish) => (
           <motion.div
@@ -66,7 +80,7 @@ const PopularMenu = () => {
               x: [0, -10, 0],
               transition: { duration: 0.5 },
             }}
-            className="flex items-center space-x-4 p-4 shadow-lg rounded-lg bg-gray-50"
+            className="flex items-center space-x-4 p-4"
           >
             <img
               src={dish.image}
