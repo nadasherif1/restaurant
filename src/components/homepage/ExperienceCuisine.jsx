@@ -8,7 +8,6 @@ const ExperienceCuisine = () => {
 
   return (
     <div className="bg-[#f9f5f0] min-h-screen flex flex-col items-center justify-center relative ">
-      {/* النص المتحرك */}
       <div className="absolute top-0 left-0 w-full flex justify-center items-center overflow-hidden">
         <motion.div
           className="flex space-x-4 sm:space-x-8 items-center text-4xl sm:text-6xl lg:text-9xl font-extrabold uppercase"

@@ -3,11 +3,11 @@ import { ArrowCircleRightIcon } from "@heroicons/react/solid";
 import { useState, useEffect } from "react";
 
 import { easeInOut, motion } from "framer-motion";
-import ExperienceFood from "@/components/ExperienceFood";
-import ArticleCard from "@/components/ArticleCard";
-import ExperienceCuisine from "@/components/ExperienceCuisine";
-import PopularDishes from "@/components/PopularDishes";
-import PopularMenu from "@/components/PopularMenu";
+import ExperienceFood from "@/components/homepage/ExperienceFood";
+import ArticleCard from "@/components/homepage/ArticleCard";
+import ExperienceCuisine from "@/components/homepage/ExperienceCuisine";
+import PopularDishes from "@/components/homepage/PopularDishes";
+import PopularMenu from "@/components/homepage/PopularMenu";
 
 const Main = () => {
   const [currentChar, setCurrentChar] = useState(0);
