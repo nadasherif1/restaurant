@@ -84,9 +84,14 @@ const Navbar = () => {
         Book a Table
       </motion.button>
 
-      <IconButton edge="end" className="lg:hidden" color="inherit" onClick={handleDrawerToggle}>
-        <HomeIcon fontSize="large" />
-      </IconButton>
+      <IconButton
+  edge="end"
+  className="lg:hidden block" 
+  color="inherit"
+  onClick={handleDrawerToggle}
+>
+  <HomeIcon fontSize="large" />
+</IconButton>
 
       <Drawer anchor="right" open={openMenu} onClose={handleDrawerToggle} PaperProps={{ sx: { backgroundColor: "black" } }}>
         <div className="w-full max-w-xl p-5 mx-auto overflow-hidden">
