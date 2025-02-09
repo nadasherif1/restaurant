@@ -1,27 +1,20 @@
 "use client";
+
 import { useState, useEffect } from "react";
 import { CalendarIcon } from "@heroicons/react/solid";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Drawer, IconButton, List, ListItem, ListItemText } from "@mui/material";
-import HomeIcon from "@mui/icons-material/Home";
-import InfoIcon from "@mui/icons-material/Info";
-import RestaurantMenuIcon from "@mui/icons-material/RestaurantMenu";
-import MenuBookIcon from "@mui/icons-material/MenuBook";
-import GroupIcon from "@mui/icons-material/Group";
-import PhotoLibraryIcon from "@mui/icons-material/PhotoLibrary";
-import ContactMailIcon from "@mui/icons-material/ContactMail";
 
 const links = [
-  { href: "/", label: "Home", icon: <HomeIcon /> },
-  { href: "/about", label: "About", icon: <InfoIcon /> },
-  { href: "/menu", label: "Menu", icon: <RestaurantMenuIcon /> },
-  { href: "/story", label: "Story", icon: <MenuBookIcon /> },
-  { href: "/chefs", label: "Chefs", icon: <GroupIcon /> },
-  { href: "/gallery", label: "Gallery", icon: <PhotoLibraryIcon /> },
-  { href: "/blog", label: "Blog", icon: <MenuBookIcon /> },
-  { href: "/contact", label: "Contact", icon: <ContactMailIcon /> },
+  { href: "/", label: "Home", icon: <CalendarIcon className="h-6 w-6" /> },
+  { href: "/about", label: "About", icon: <CalendarIcon className="h-6 w-6" /> },
+  { href: "/menu", label: "Menu", icon: <CalendarIcon className="h-6 w-6" /> },
+  { href: "/story", label: "Story", icon: <CalendarIcon className="h-6 w-6" /> },
+  { href: "/chefs", label: "Chefs", icon: <CalendarIcon className="h-6 w-6" /> },
+  { href: "/gallery", label: "Gallery", icon: <CalendarIcon className="h-6 w-6" /> },
+  { href: "/blog", label: "Blog", icon: <CalendarIcon className="h-6 w-6" /> },
+  { href: "/contact", label: "Contact", icon: <CalendarIcon className="h-6 w-6" /> },
 ];
 
 const Navbar = () => {
@@ -88,33 +81,40 @@ const Navbar = () => {
       </motion.button>
 
       {/* أيقونة الهوم - تظهر فقط على الهاتف */}
-      <IconButton
-        edge="end"
-        className="lg:hidden" // إخفاء العنصر على اللابتوب
-        color="inherit"
+      <button
+        className="lg:hidden block text-white"
         onClick={handleDrawerToggle}
       >
-        <HomeIcon fontSize="large" />
-      </IconButton>
+        <CalendarIcon className="h-8 w-8" />
+      </button>
 
       {/* القائمة الجانبية Drawer */}
-      <Drawer anchor="right" open={openMenu} onClose={handleDrawerToggle} PaperProps={{ sx: { backgroundColor: "black" } }}>
-        <div className="w-full max-w-xl p-5 mx-auto overflow-hidden">
-          <List>
-            {links.map((link) => (
-              <div key={link.href}>
-                <ListItem button onClick={handleDrawerToggle} className="text-white">
-                  <Link href={link.href} className="flex items-center justify-start w-full">
-                    <span className="flex items-center justify-center w-10 h-10">{link.icon}</span>
-                    <ListItemText primary={link.label} className="ml-4 text-white" />
+      {openMenu && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-90 flex justify-end"
+          onClick={handleDrawerToggle}
+        >
+          <div
+            className="w-3/4 max-w-xs bg-black text-white p-5"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <ul>
+              {links.map((link) => (
+                <li key={link.href} className="mb-4">
+                  <Link
+                    href={link.href}
+                    className="flex items-center gap-4"
+                    onClick={handleDrawerToggle}
+                  >
+                    {link.icon}
+                    <span>{link.label}</span>
                   </Link>
-                </ListItem>
-                <hr className="border-gray-700" />
-              </div>
-            ))}
-          </List>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
-      </Drawer>
+      )}
     </motion.nav>
   );
 };
