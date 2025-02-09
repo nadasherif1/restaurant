@@ -90,11 +90,11 @@ const Navbar = () => {
       {/* أيقونة الهوم - تظهر فقط على الهاتف */}
       <IconButton
         edge="end"
-        className="lg:hidden block" 
+        className="lg:hidden" // إخفاء العنصر على اللابتوب
         color="inherit"
         onClick={handleDrawerToggle}
       >
-        <HomeIcon fontSize="large" className="lg:hidden block" />
+        <HomeIcon fontSize="large" />
       </IconButton>
 
       {/* القائمة الجانبية Drawer */}
