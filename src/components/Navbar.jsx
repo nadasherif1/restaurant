@@ -52,6 +52,7 @@ const Navbar = () => {
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
     >
+      {/* شعار الموقع */}
       <div className="flex items-center gap-4">
         <Image
           src={scrolled ? "/homepage/demo-restaurant-logo-white@2x.webp" : "/homepage/demo-restaurant-logo-black@2x.webp"}
@@ -62,6 +63,7 @@ const Navbar = () => {
         />
       </div>
 
+      {/* قائمة الروابط - تظهر فقط على اللاب */}
       <ul className="hidden lg:flex items-center space-x-6">
         {links.map((link) => (
           <li key={link.href} className="flex items-center gap-2">
@@ -75,6 +77,7 @@ const Navbar = () => {
         ))}
       </ul>
 
+      {/* زر الحجز - يظهر فقط على اللاب */}
       <motion.button
         className="hidden lg:flex px-6 py-3 font-bold rounded-lg border border-white shadow text-white items-center gap-2 transition-all hover:bg-white hover:text-black"
         whileHover={{ backgroundColor: "white", color: "#000000" }}
@@ -84,15 +87,17 @@ const Navbar = () => {
         Book a Table
       </motion.button>
 
+      {/* أيقونة الهوم - تظهر فقط على الهاتف */}
       <IconButton
-  edge="end"
-  className="lg:hidden block" 
-  color="inherit"
-  onClick={handleDrawerToggle}
->
-  <HomeIcon fontSize="large" className="lg:hidden block"/>
-</IconButton>
+        edge="end"
+        className="lg:hidden block" 
+        color="inherit"
+        onClick={handleDrawerToggle}
+      >
+        <HomeIcon fontSize="large" className="lg:hidden block" />
+      </IconButton>
 
+      {/* القائمة الجانبية Drawer */}
       <Drawer anchor="right" open={openMenu} onClose={handleDrawerToggle} PaperProps={{ sx: { backgroundColor: "black" } }}>
         <div className="w-full max-w-xl p-5 mx-auto overflow-hidden">
           <List>
