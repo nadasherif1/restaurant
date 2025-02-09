@@ -88,7 +88,33 @@ const Navbar = () => {
       </motion.button>
 
       {/* أيقونة الهوم - تظهر فقط على الهاتف */}
-     
+      <IconButton
+        edge="end"
+        className="lg:hidden block" 
+        color="inherit"
+        onClick={handleDrawerToggle}
+      >
+        <HomeIcon fontSize="large" className="lg:hidden block" />
+      </IconButton>
+
+      {/* القائمة الجانبية Drawer */}
+      <Drawer anchor="right" open={openMenu} onClose={handleDrawerToggle} PaperProps={{ sx: { backgroundColor: "black" } }}>
+        <div className="w-full max-w-xl p-5 mx-auto overflow-hidden">
+          <List>
+            {links.map((link) => (
+              <div key={link.href}>
+                <ListItem button onClick={handleDrawerToggle} className="text-white">
+                  <Link href={link.href} className="flex items-center justify-start w-full">
+                    <span className="flex items-center justify-center w-10 h-10">{link.icon}</span>
+                    <ListItemText primary={link.label} className="ml-4 text-white" />
+                  </Link>
+                </ListItem>
+                <hr className="border-gray-700" />
+              </div>
+            ))}
+          </List>
+        </div>
+      </Drawer>
     </motion.nav>
   );
 };
