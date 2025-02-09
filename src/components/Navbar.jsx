@@ -90,7 +90,7 @@ const Navbar = () => {
   color="inherit"
   onClick={handleDrawerToggle}
 >
-  <HomeIcon fontSize="large" />
+  <HomeIcon fontSize="large" className="lg:hidden block"/>
 </IconButton>
 
       <Drawer anchor="right" open={openMenu} onClose={handleDrawerToggle} PaperProps={{ sx: { backgroundColor: "black" } }}>
